@@ -1,0 +1,4 @@
+FROM openjdk:17-jdk-alpine
+ENTRYPOINT ["./Moontiw_Announcement/mvnw","clean","package"]
+COPY ./Moontiw_Announcement/target/*.jar /app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]

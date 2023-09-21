@@ -1,0 +1,52 @@
+services:
+ front:
+  image: frontimg:1.00
+  build:
+   context: .
+   dockerfile: multistageDockerfile
+  volumes:
+   - ./nginx.conf:/etc/nginx/conf.d/default.conf
+  networks:
+    fixedip:
+      ipv4_address: 192.120.100.151
+
+ back:
+  image: openjdk:17-alpine
+  volumes:
+   - "./Moontiw_Announcement/target:/app"
+  command: sh -c "java -jar /app/*.jar"
+  environment:
+   - mysql_url=db
+  networks:
+    fixedip:
+      ipv4_address: 192.120.100.155
+
+ rev-proxy:
+  image: nginx:alpine
+  ports:
+     - "80:80"
+     - "443:443"
+  volumes:
+     - ./default.conf:/etc/nginx/conf.d/default.conf
+     - ./certificateFiles:/etc/ssl/certificateFiles
+  networks:
+    fixedip:
+      ipv4_address: 192.120.100.158
+
+ db:
+   image: mysql:8.0.32
+   environment:
+    - MYSQL_ROOT_PASSWORD=Moontiw
+    - LANG=en_US.UTF-8
+   volumes:
+    - ./backupdatabase:/var/lib/mysql
+   networks:
+     fixedip:
+       ipv4_address: 192.120.100.251
+   restart: on-failure
+
+networks:
+ fixedip:
+    ipam:
+      config:
+        - subnet: 192.120.100.0/24

@@ -1,0 +1,8 @@
+FROM node:19 AS stage1
+COPY Announcement/ /nodeproj/
+WORKDIR /nodeproj/
+RUN npm install
+RUN npm install pinia
+RUN npm run build
+FROM nginx:alpine
+COPY --from=stage1 /nodeproj/dist/ /usr/share/nginx/html/
