@@ -1,0 +1,56 @@
+
+/* .frame1 {
+    background-color: #e7e7e7;
+    padding: 20px;
+    border-radius: 10px;
+    width: 1350px;
+    height: 830px;
+    position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+  .ann-title{
+    height: 30px;
+
+  }
+  .ann-title:focus{
+    border: 3px solid #ccc;
+    outline: none;
+    border-color: #000000;
+  }
+  .ann-title::placeholder {
+    color: #ccc;
+  }
+
+  .ann-description:focus{
+    border: 3px solid #ccc;
+    outline: none;
+    border-color: #000000;
+  }
+  .ann-description::placeholder {
+    color: #ccc;
+  }
+
+  .ann-close-date:focus{
+    border: 3px solid #ccc;
+    outline: none;
+    border-color: #000000;
+  }
+
+  .ann-close-time:focus{
+    border: 3px solid #ccc;
+    outline: none;
+    border-color: #000000;
+  }
+  .ann-publish-date:focus{
+    border: 3px solid #ccc;
+    outline: none;
+    border-color: #000000;
+  }
+
+  .ann-publish-time:focus{
+    border: 3px solid #ccc;
+    outline: none;
+    border-color: #5f9ea0;
+  } */
